@@ -1,0 +1,5 @@
+Q:\Programming\projects\csharp\Kartwheel\Kartwheel\bin\Debug\Kartwheel.dll
+Q:\Programming\projects\csharp\Kartwheel\Kartwheel\bin\Debug\Kartwheel.pdb
+Q:\Programming\projects\csharp\Kartwheel\Kartwheel\obj\Debug\Kartwheel.csprojResolveAssemblyReference.cache
+Q:\Programming\projects\csharp\Kartwheel\Kartwheel\obj\Debug\Kartwheel.dll
+Q:\Programming\projects\csharp\Kartwheel\Kartwheel\obj\Debug\Kartwheel.pdb
