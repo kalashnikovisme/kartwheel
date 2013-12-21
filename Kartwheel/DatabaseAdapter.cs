@@ -27,7 +27,7 @@ namespace Kartwheel
 
 		public void SaveData(DataGridView inputDataGridView, string table)
 		{
-			string className = getClassName(table);
+			string clName = className(table);
 			List<object> arr = new List<object>();
 
 			for (int i = 0; i < inputDataGridView.Rows.Count - 1; i++)
@@ -37,7 +37,7 @@ namespace Kartwheel
 				{
 					param[j] = inputDataGridView.Rows[i].Cells[j].Value;
 				}
-				object item = Activator.CreateInstance(Type.GetType(className), param);
+				object item = Activator.CreateInstance(Type.GetType(clName), param);
 				arr.Add(item);				
 			}
 
@@ -70,7 +70,7 @@ namespace Kartwheel
 			connection.Open();
 			SqlCeCommand command = new System.Data.SqlServerCe.SqlCeCommand("SELECT * FROM [" + table + "]", connection);
 			SqlCeDataReader reader = command.ExecuteReader();
-			string className = getClassName(table);
+			string cName = className(table);
 			List<object> arr = new List<object>();
 			while (reader.Read())
 			{
@@ -79,7 +79,7 @@ namespace Kartwheel
 				{
 					param[i] = reader.GetValue(i);
 				}
-				object item = Activator.CreateInstance(Type.GetType(className), param);
+				object item = Activator.CreateInstance(Type.GetType(cName), param);
 				arr.Add(item);
 			}
 			
@@ -120,6 +120,11 @@ namespace Kartwheel
 
 		private string className(string table)
 		{
+			/*
+			 * FIXME
+			 * table - слово во множественном числе
+			 * надо сделать слово в единственном
+			 */
 			string classN = "Kartwheel." + table.Substring(0, 1).ToUpper() + table.Substring(1, table.Length - 2);
 			return classN;
 		}
